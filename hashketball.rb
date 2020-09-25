@@ -198,3 +198,21 @@ def big_shoe_rebound
 end
 
 ###_BONUS_ROUND_###
+
+def most_points_scored
+  
+end
+
+def winning_team
+  
+end
+
+def player_with_longest_name(player_name)
+  
+end
+
+###__SPECIAL_BONUS_ROUND__###
+
+def long_name_steals_a_ton?(player_name)
+  
+end
