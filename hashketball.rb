@@ -127,3 +127,32 @@ def game_hash
 end
 
 # Write code here
+
+def num_points_scored(player_name)
+  game_hash
+end
+
+def shoe_size(player_name)
+  game_hash
+end
+
+def team_colors(team_name)
+  game_hash
+end
+
+def team_names
+  game_hash
+end
+
+def player_numbers(team_name)
+  game_hash
+end
+
+def player_stats(player_name)
+  game_hash
+end
+
+def big_shoe_rebound
+  game_hash
+end
+
