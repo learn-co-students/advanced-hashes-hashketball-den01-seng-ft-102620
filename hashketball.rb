@@ -156,3 +156,8 @@ def big_shoe_rebound
   game_hash
 end
 
+#Bonus
+
+def long_name_steals_a_ton?
+  game_hash
+end
