@@ -1,7 +1,5 @@
 require "pry"
 
-
-
 def game_hash
   {
     home: {
@@ -129,14 +127,22 @@ def game_hash
   }
 end
 
-
-
 def num_points_scored(player_name)
-  game_hash
+  game_hash.each do |local, data|
+    data.each do |team_data, players_data|
+      if team_data == :players
+        players_data.each do |player_stats|
+          if player_stats[:player_name] == player_name
+            return player_stats[:points]
+          end
+        end
+      end
+    end
+  end
 end
 
 def shoe_size(player_name)
-  game_hash
+  game_hash.
 end
 
 def team_colors(team_name)
@@ -156,13 +162,5 @@ def player_stats(player_name)
 end
 
 def big_shoe_rebound
-  game_hash
-end
-
-
-
-#Bonus
-
-def long_name_steals_a_ton?
   game_hash
 end
