@@ -170,11 +170,27 @@ def team_names
 end
 
 def player_numbers(team_name)
-  game_hash
+  game_hash.each_with_object([]) do |(local, data), numbers|
+    data[:players].each do |player_data| 
+      if data[:team_name] == team_name
+        numbers << player_data[:number]
+      end
+    end
+  end
 end
 
 def player_stats(player_name)
-  game_hash
+  game_hash.each do |local, data|
+    data.each do |team_data, players_data|
+      if team_data == :players
+        players_data.each do |player_stats|
+          if player_stats[:player_name] == player_name
+            return player_stats
+          end
+        end
+      end
+    end
+  end
 end
 
 def big_shoe_rebound
