@@ -193,21 +193,35 @@ def player_stats(player_name)
   end
 end
 
-def big_shoe_rebounds
-  game_hash.each do |local, data|
+##################################################################################################################
+
+def big_shoe
+ game_hash.each_with_object("") do |(local, data), player|
     data[:players].each do |player_data|
-      big_shoe = 0
-      boards = []
-      if player_data[:shoe] > big_shoe
-        big_shoe = player_data[:shoe]
-        boards << player_data[:rebounds]
+        player_data.each do |player_stats|
+          binding.pry 
+        end
       end
-      return boards
     end
   end
 end
 
-###_BONUS_ROUND_###
+def big_shoe_rebounds
+  game_hash.each_with_object("") do |(local, data), boards|
+    data.each do |team_data, player_data|
+      if team_data == :players
+        player_data.each do |player_stats|
+          binding.pry
+          if player_stats[:shoe] >= big_shoe
+            big_shoe = player_stats[:shoe]
+          end
+        end
+      end
+    end
+  end
+end
+
+############################_BONUS_ROUND_##########################################################################
 
 def most_points_scored
   
@@ -220,7 +234,7 @@ end
 def player_with_longest_name(player_name)
   
 end
-###__SPECIAL_BONUS_ROUND__###
+########################__SPECIAL_BONUS_ROUND__######################################################################
 
 def long_name_steals_a_ton?(player_name)
   
