@@ -193,8 +193,18 @@ def player_stats(player_name)
   end
 end
 
-def big_shoe_rebound
-  game_hash
+def big_shoe_rebounds
+  game_hash.each do |local, data|
+    data[:players].each do |player_data|
+      big_shoe = 0
+      boards = []
+      if player_data[:shoe] > big_shoe
+        big_shoe = player_data[:shoe]
+        boards << player_data[:rebounds]
+      end
+      return boards
+    end
+  end
 end
 
 ###_BONUS_ROUND_###
@@ -210,7 +220,6 @@ end
 def player_with_longest_name(player_name)
   
 end
-
 ###__SPECIAL_BONUS_ROUND__###
 
 def long_name_steals_a_ton?(player_name)
