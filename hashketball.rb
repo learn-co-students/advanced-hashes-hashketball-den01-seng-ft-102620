@@ -197,13 +197,12 @@ end
 
 def big_shoe
  game_hash.each_with_object("") do |(local, data), player|
-    data[:players].each do |player_data|
-        player_data.each do |player_stats|
-          binding.pry 
-        end
-      end
-    end
-  end
+   data[:players].each do |player_data|
+     player_data.each do |player_stats|
+       binding.pry
+     end
+   end
+ end
 end
 
 def big_shoe_rebounds
@@ -211,7 +210,7 @@ def big_shoe_rebounds
     data.each do |team_data, player_data|
       if team_data == :players
         player_data.each do |player_stats|
-          binding.pry
+          
           if player_stats[:shoe] >= big_shoe
             big_shoe = player_stats[:shoe]
           end

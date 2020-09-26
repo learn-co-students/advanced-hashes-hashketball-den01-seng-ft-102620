@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'spec_helper.rb'
 
 describe 'hashketball' do
   let(:alan_anderson) {
