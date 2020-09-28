@@ -1,4 +1,5 @@
-# Write your code below game_hash
+require "pry"
+
 def game_hash
   {
     home: {
@@ -126,4 +127,109 @@ def game_hash
   }
 end
 
-# Write code here
+def num_points_scored(player_name)
+  game_hash.each do |local, data|
+    data.each do |team_data, players_data|
+      if team_data == :players
+        players_data.each do |player_stats|
+          if player_stats[:player_name] == player_name
+            return player_stats[:points]
+          end
+        end
+      end
+    end
+  end
+end
+
+def shoe_size(player_name)
+  game_hash.each do |local, data|
+    data.each do |team_data, players_data|
+      if team_data == :players
+        players_data.each do |player_stats|
+          if player_stats[:player_name] == player_name
+            return player_stats[:shoe]
+          end
+        end
+      end
+    end
+  end
+end
+
+def team_colors(team_name)
+  game_hash.each do |local, data|
+    if data[:team_name] == team_name
+      return data[:colors]
+    end
+  end
+end
+
+def team_names
+  game_hash.each_with_object([]) do |(local, data), teams|
+    teams << data[:team_name]
+  end
+end
+
+def player_numbers(team_name)
+  game_hash.each_with_object([]) do |(local, data), numbers|
+    data[:players].each do |player_data| 
+      if data[:team_name] == team_name
+        numbers << player_data[:number]
+      end
+    end
+  end
+end
+
+def player_stats(player_name)
+  game_hash.each do |local, data|
+    data.each do |team_data, players_data|
+      if team_data == :players
+        players_data.each do |player_stats|
+          if player_stats[:player_name] == player_name
+            return player_stats
+          end
+        end
+      end
+    end
+  end
+end
+
+#
+def biggest_shoe
+  game_hash.each_with_object([]) do |(local, data), shoes|
+    data[:players].each do |(player_data)|
+      shoes << player_data[:shoe]
+    end
+    return shoes.max
+  end
+end
+#
+
+def big_shoe_rebounds
+  #biggest_shoe
+  game_hash.each do |(local, data)|
+    data[:players].each do |(player_data)|
+      if player_data[:shoe] == biggest_shoe
+        return player_data[:rebounds]
+      end
+    end
+  end
+end
+
+############################_BONUS_ROUND_##########################################################################
+
+def most_points_scored
+  
+end
+
+def winning_team
+  
+end
+
+def player_with_longest_name(player_name)
+  
+end
+########################__SPECIAL_BONUS_ROUND__######################################################################
+
+def long_name_steals_a_ton?(player_name)
+  
+end
