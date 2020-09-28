@@ -206,7 +206,7 @@ end
 
 def big_shoe_rebounds
   #biggest_shoe
-  game_hash.each_with_object([]) do |(local, data), boards|
+  game_hash.each do |(local, data)|
     data[:players].each do |(player_data)|
       if player_data[:shoe] == biggest_shoe
         return player_data[:rebounds]
