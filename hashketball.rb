@@ -1,4 +1,7 @@
 # Write your code below game_hash
+
+require 'pry'
+
 def game_hash
   {
     home: {
@@ -127,3 +130,225 @@ def game_hash
 end
 
 # Write code here
+
+def get_into_hash
+  
+  game_hash
+  
+  game_hash.each do |location_key, location_value|
+    
+    #binding.pry
+    
+    #location_value.each do |team_attributes, team_values|
+      
+      #binding.pry
+      
+  end
+end
+
+def get_into_players(player_name)
+  
+  game_hash
+    
+  game_hash.each do |location_key, location_value|
+    
+    game_hash[location_key][:players].each do | player_stats|
+      
+      #block of code
+      
+      if player_stats[:player_name] == player_name
+        
+        #block of code
+        
+        
+      end 
+    
+    end
+  end
+end
+      
+
+  
+
+def num_points_scored(player_name)
+  
+  game_hash
+    
+  game_hash.each do |location_key, location_value|
+    
+    game_hash[location_key][:players].each do | player_stats|
+      
+      if player_stats[:player_name] == player_name
+        
+        player_points = player_stats[:points]
+        
+        return player_points
+        
+      end 
+    
+    end
+  
+  end
+
+end
+
+def shoe_size(player_name)
+  
+  game_hash
+    
+  game_hash.each do |location_key, location_value|
+    
+    game_hash[location_key][:players].each do | player_stats|
+      
+      if player_stats[:player_name] == player_name
+        
+        player_shoe_size = player_stats[:shoe]
+        
+        return player_shoe_size
+        
+      end
+      
+    end
+    
+  end
+
+end
+
+def team_colors(team_name)
+  
+  game_hash
+    
+  game_hash.each do |location_key, location_value|
+    
+    if location_value[:team_name] == team_name
+      
+      array_colors = location_value[:colors]
+      
+      return array_colors
+     
+      
+     
+    end
+  
+  end
+
+end
+
+def team_names
+  
+  team_array = []
+  
+  game_hash.each do |location_key, location_value|
+    
+    #binding.pry
+    
+    team_array.push (location_value[:team_name])
+  
+  
+  end
+  
+  team_array
+  
+end  
+
+def player_numbers(team_name)
+  
+  array_jersey = []
+  
+  game_hash
+  
+  game_hash.each do |location_key, location_value|
+    
+    #binding.pry
+    
+    if location_value[:team_name] == team_name
+      
+      location_value[:players].each do |jersey_number|
+        
+        #binding.pry
+        
+        array_jersey.push(jersey_number[:number])
+      end
+    
+    return array_jersey
+      
+    end
+    
+  end
+  
+end 
+
+def player_stats(player_name)
+  
+  game_hash
+  
+  game_hash.each do |location_key, location_value|
+    
+    game_hash[location_key][:players].each do | player_stats|
+      
+    #binding.pry
+    
+      if player_stats[:player_name] == player_name
+      
+      return player_stats
+    
+    
+      end
+  
+    end 
+  
+
+
+  end
+  
+  
+end
+
+def big_shoe_rebounds
+  
+  largest_shoe = 0 
+  
+  rebounds = 0 
+  
+  game_hash
+  
+  game_hash.each do |location_key, location_value|
+    
+    game_hash[location_key][:players].each do | player_stats|
+      
+      
+      if player_stats[:shoe] > largest_shoe
+        
+        largest_shoe = player_stats[:shoe]
+        
+        rebounds = player_stats[:rebounds]
+        
+        
+      end
+      
+        
+    
+    end
+    
+    
+    
+  end
+  
+  
+ rebounds
+  
+end 
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
