@@ -1,7 +1,8 @@
 # Write your code below game_hash
+require 'pry'
 def game_hash
   {
-    home: {
+    away: {
       team_name: "Brooklyn Nets",
       colors: ["Black", "White"],
       players: [
@@ -62,7 +63,7 @@ def game_hash
         }
       ]
     },
-    away: {
+     home: {
       team_name: "Charlotte Hornets",
       colors: ["Turquoise", "Purple"],
       players: [
@@ -126,4 +127,30 @@ def game_hash
   }
 end
 
-# Write code here
+
+def num_points_scored (given_name)
+game_hash.each do |location, team_info|
+binding.pry
+end
+end
+
+#
+#binding.pry
+#      team_info.each do |inner_team_info, data|
+#binding.pry
+  #      data.each do |inner_hash|
+  #        if team_info[:players][:player_name] == given_name
+  #          p inner_hash[:points]
+  #        end
+  #      end
+  #   end
+      #binding.pry
+  #  end
+#end
+    #data.each do |inide_array|
+    #  binding.pry
+    #if inside_array[:player_name] == given_name
+    #  inside_array.each do |stats,result|
+
+    #  end
+  #  binding.pry
